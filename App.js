@@ -1,21 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import AppLoading from "expo-app-loading";
+import * as Font from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Registr from "./Screens/RegistrationScreen/RegistrationScreen";
+import Login from "./Screens/LoginScreen/LoginScreen";
+const MainStack = createStackNavigator();
 
-export default function App() {
+const loadApplication = async () => {
+  await Font.loadAsync({
+    "Roboto-Regular": require("./assets/fonts/Ubuntu-Medium.ttf"),
+    "Roboto-Bold": require("./assets/fonts/Ubuntu-Regular.ttf"),
+  });
+};
+
+const App = () => {
+  const [iasReady, setIasReady] = useState(false);
+
+  if (!iasReady) {
+    return (
+      <AppLoading
+        startAsync={loadApplication}
+        onFinish={() => setIasReady(true)}
+        onError={console.warn}
+      />
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Hello world</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <MainStack.Navigator>
+        <MainStack.Screen name="Registration" component={Registr} />
+        <MainStack.Screen name="Login" component={Login} />
+      </MainStack.Navigator>
+    </NavigationContainer>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
+export default App;
