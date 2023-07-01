@@ -9,8 +9,8 @@ const MainStack = createStackNavigator();
 
 const loadApplication = async () => {
   await Font.loadAsync({
-    "Roboto-Regular": require("./assets/fonts/Ubuntu-Medium.ttf"),
-    "Roboto-Bold": require("./assets/fonts/Ubuntu-Regular.ttf"),
+    "Ubuntu-Medium": require("./assets/fonts/Ubuntu-Medium.ttf"),
+    "Ubuntu-Regular": require("./assets/fonts/Ubuntu-Regular.ttf"),
   });
 };
 

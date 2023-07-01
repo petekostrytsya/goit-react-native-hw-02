@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    fontFamily: "Roboto-Regular",
+    fontFamily: "Ubuntu-Regular",
   },
   keyboard: {
     flex: 1,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#212121",
     marginVertical: 32,
-    fontFamily: "Roboto-Bold",
+    fontFamily: "Ubuntu-Medium",
     fontSize: 30,
     lineHeight: 35,
     textAlign: "center",
